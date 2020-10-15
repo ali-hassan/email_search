@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+
+<%= form_tag(users_path, method: "get") do %>
+  <%= text_field_tag(:first_name, params[:first_name], placeholder: 'FirstName') %>
+  <%= text_field_tag(:last_name, params[:last_name], placeholder: 'LastName') %>
+  <%= text_field_tag(:url, params[:url], placeholder: 'URL') %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
+</div>
+<h1>Users</h1>
+
+<table>
+  <thead>
+      <h2>Found Users</h2>
+  </thead>
+
+  <tbody>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>URL</th>
+    <th>Email</th>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.url %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
